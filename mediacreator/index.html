@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AI Media Creator - Professional AI-powered video, animation and media production studio.">
-  <title>AI MEDIA CREATOR | AI-Powered Video & Animation Studio</title>
+  <title>AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
     
@@ -17,13 +17,13 @@
       width:100%; height:100%;
       object-fit:cover;
       z-index:-2;
-      filter: brightness(1.08) contrast(1.05) saturate(1.1);
+      filter: brightness(1.25) contrast(1.05) saturate(1.15); /* magas fényerő */
     }
     
     .overlay{
       position:fixed;
       inset:0;
-      background:radial-gradient(circle, rgba(0,20,40,0.3) 0%, rgba(0,0,0,0.88) 70%);
+      background:radial-gradient(circle, rgba(0,20,45,0.25) 0%, rgba(0,0,0,0.88) 75%);
       z-index:-1;
     }
     
@@ -37,34 +37,21 @@
       z-index:100;
       backdrop-filter:blur(12px);
       flex-wrap:wrap;
-      gap:15px;
+      gap:10px;
     }
-    .logo{font-size:26px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
+    .logo{font-size:24px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
 
-    nav{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    nav a{
-      color:#00f5ff;
-      text-decoration:none;
-      font-weight:500;
-      font-size:1.05rem;
-      transition:0.3s;
-    }
-    nav a:hover{
-      text-shadow:0 0 20px #00f5ff;
-      color:white;
-    }
+    nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
+    nav a{color:#00f5ff;text-decoration:none;font-weight:500;font-size:1rem;transition:0.3s;}
+    nav a:hover{text-shadow:0 0 15px #00f5ff;color:white;}
 
-    /* Mobil finomhangolás */
+    /* MOBIL - méret optimalizálás */
     @media (max-width: 768px) {
-      .logo{font-size:22px;}
-      nav{gap:15px;}
-      nav a{font-size:0.98rem;}
-      header{padding:15px 5%;}
+      .video-bg{filter: brightness(1.20) contrast(1.05);}
+      .overlay{background:radial-gradient(circle, rgba(0,20,45,0.35) 0%, rgba(0,0,0,0.94) 65%);}
+      .logo{font-size:21px;}
+      nav{gap:12px;}
+      nav a{font-size:0.95rem;}
     }
   </style>
 </head>
