@@ -21,17 +21,33 @@
     .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:25px;}
     .card{background:rgba(0,30,50,0.6);border:1px solid #00f5ff33;border-radius:15px;overflow:hidden;transition:0.4s;}
     .card:hover{transform:scale(1.03);border-color:#00f5ff;box-shadow:0 0 35px rgba(0,245,255,0.4);}
-    .card video{width:100%;height:220px;object-fit:cover;}
+
+    /* 1:1 NÉGYZETES VIDEÓ KERET */
+    .card .video-container{
+      position:relative;
+      width:100%;
+      padding-top:100%;           /* 1:1 arány (négyzetes) */
+      overflow:hidden;
+    }
+    .card video{
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      object-fit:cover;           /* teljesen kitölti a négyzetet */
+    }
     .card h3{padding:20px 20px 10px;font-size:1.35rem;}
     .card p{padding:0 20px 25px;opacity:0.9;line-height:1.6;font-size:0.95rem;}
+
     @media (max-width: 600px) {
       h1{font-size:2.3rem;}
-      .card video{height:200px;}
+      .grid{gap:20px;}
     }
   </style>
 </head>
 <body>
-  <video class="video-bg" autoplay loop muted playsinline><source src="background.mp4" type="video/mp4"></video>
+  <video class="video-bg" autoplay loop muted playsinline>
+    <source src="background.mp4" type="video/mp4">
+  </video>
   <div class="overlay"></div>
 
   <header>
@@ -47,21 +63,40 @@
   <div class="content">
     <h1>Our Portfolio</h1>
     <div class="grid">
+
+      <!-- AI Logos & AI Imagery -->
       <div class="card">
-        <video autoplay loop muted playsinline><source src="ailogosaiimagine.mp4" type="video/mp4"></video>
-        <h3>AI Logos &amp; AI Imagine</h3>
-        <p>Stunning AI-generated logos, branding visuals, and high-quality imaginative images.</p>
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="ailogosaiimagine.mp4" type="video/mp4">
+          </video>
+        </div>
+        <h3>AI Logos &amp; AI Imagery</h3>
+        <p>Stunning AI-generated logos, branding visuals, and high-quality imaginative images created with advanced generative AI.</p>
       </div>
+
+      <!-- AI Videos -->
       <div class="card">
-        <video autoplay loop muted playsinline><source src="aivideos.mp4" type="video/mp4"></video>
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="aivideos.mp4" type="video/mp4">
+          </video>
+        </div>
         <h3>AI Videos</h3>
-        <p>Cinematic AI videos, motion graphics, and dynamic animations.</p>
+        <p>Cinematic AI videos, motion graphics, and dynamic animations powered by artificial intelligence.</p>
       </div>
+
+      <!-- AI Websites -->
       <div class="card">
-        <video autoplay loop muted playsinline><source src="aiwebsites.mp4" type="video/mp4"></video>
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="aiwebsites.mp4" type="video/mp4">
+          </video>
+        </div>
         <h3>AI Websites</h3>
-        <p>Modern, futuristic websites and landing pages designed with AI.</p>
+        <p>Modern, futuristic websites and landing pages designed and optimized with AI assistance.</p>
       </div>
+
     </div>
   </div>
 </body>
