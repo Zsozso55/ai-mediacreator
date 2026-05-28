@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about AI Media Creator - a next-generation AI creative studio specializing in video production, animation and digital content.">
+  <meta name="keywords" content="AI media studio, about AI creator, AI animation company, futuristic media">
+  <title>About Us - AI MEDIA CREATOR</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;}
+    .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.4);}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:-1;}
+    header{position:fixed;top:0;width:100%;padding:25px 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
+    .logo{font-size:28px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
+    nav a{color:#00f5ff;margin:0 22px;text-decoration:none;font-weight:500;transition:0.3s;}
+    nav a:hover{text-shadow:0 0 20px #00f5ff;color:white;}
+    .content{padding:140px 10% 100px;text-align:center;max-width:900px;margin:0 auto;}
+    h1{font-size:4rem;margin-bottom:40px;text-shadow:0 0 40px #00f5ff;}
+    p{font-size:1.25rem;line-height:1.8;opacity:0.9;margin-bottom:30px;}
+  </style>
+</head>
+<body>
+  <video class="video-bg" autoplay loop muted playsinline>
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">AI MEDIA CREATOR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>About AI Media Creator</h1>
+    <p>We are a cutting-edge creative studio specializing in AI-powered media production.</p>
+    <p>Our mission is to empower creators and brands with breathtaking visuals, intelligent animations, and next-generation storytelling.</p>
+  </div>
+
+  <audio id="clickSound" src="click.mp3"></audio>
+  <script>
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON' || e.target.closest('a')) {
+        const sound = document.getElementById('clickSound');
+        sound.currentTime = 0;
+        sound.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>

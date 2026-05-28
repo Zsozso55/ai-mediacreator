@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Media Creator - Professional AI-powered video, animation and media production studio.">
+  <title>AI MEDIA CREATOR | AI-Powered Video & Animation Studio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+    
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;overflow-x:hidden;}
+    
+    .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter: brightness(1.15) contrast(1.1) saturate(1.2);}
+    .overlay{position:fixed;inset:0;background:radial-gradient(circle, rgba(0,30,60,0.25) 0%, rgba(0,0,0,0.75) 75%);z-index:-1;}
+    
+    header{position:fixed;top:0;width:100%;padding:25px 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
+    .logo{font-size:28px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
+    nav a{color:#00f5ff;margin:0 22px;text-decoration:none;font-weight:500;transition:0.3s;}
+    nav a:hover{text-shadow:0 0 20px #00f5ff;color:white;}
+  </style>
+</head>
+<body>
+
+  <video class="video-bg" autoplay playsinline id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="logo">AI MEDIA CREATOR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    // Videó beállítások
+    const video = document.getElementById('bgVideo');
+    video.volume = 0.45;
+    video.play().catch(() => {});
+
+    // Home gombra kattintva újraindítja a videót
+    document.querySelector('a[href="index.html"]').addEventListener('click', () => {
+      video.currentTime = 0;
+      video.play();
+    });
+  </script>
+</body>
+</html>
