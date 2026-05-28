@@ -1,313 +1,162 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta
-name="description"
-content="AI Media Creator">
-
-<title>AI MEDIA CREATOR</title>
-
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-
-*{
-
-margin:0;
-padding:0;
-
-box-sizing:border-box;
-
-}
-
-body{
-
-font-family:'Orbitron',sans-serif;
-
-background:#000;
-
-color:#00f5ff;
-
-overflow-x:hidden;
-
-}
-
-/* VIDEO */
-
-.video-bg{
-
-position:fixed;
-
-inset:0;
-
-width:100%;
-
-height:100dvh;
-
-object-fit:cover;
-
-z-index:-2;
-
-filter:
-
-brightness(1.18)
-
-contrast(1.05)
-
-saturate(1.1);
-
-}
-
-/* OVERLAY */
-
-.overlay{
-
-position:fixed;
-
-inset:0;
-
-background:
-
-radial-gradient(
-
-circle,
-
-rgba(0,20,45,.22) 0%,
-
-rgba(0,0,0,.88) 78%
-
-);
-
-z-index:-1;
-
-}
-
-/* HEADER */
-
-header{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-padding:
-
-14px 24px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-backdrop-filter:blur(12px);
-
-z-index:100;
-
-}
-
-/* LOGO */
-
-.logo{
-
-font-size:28px;
-
-font-weight:900;
-
-text-shadow:
-
-0 0 20px #00f5ff;
-
-}
-
-/* NAV */
-
-nav{
-
-display:flex;
-
-gap:22px;
-
-}
-
-nav a{
-
-color:#00f5ff;
-
-text-decoration:none;
-
-font-size:15px;
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:white;
-
-text-shadow:
-
-0 0 15px #00f5ff;
-
-}
-
-/* TABLET / MOBILE */
-
-@media (max-width:768px){
-
-header{
-
-flex-direction:column;
-
-gap:12px;
-
-padding:12px;
-
-}
-
-.logo{
-
-font-size:20px;
-
-text-align:center;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:14px;
-
-}
-
-nav a{
-
-font-size:13px;
-
-}
-
-}
-
-/* SMALL PHONES */
-
-@media (max-width:480px){
-
-.logo{
-
-font-size:18px;
-
-}
-
-nav{
-
-gap:10px;
-
-}
-
-nav a{
-
-font-size:12px;
-
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="AI Media Creator">
+  <title>AI MEDIA CREATOR</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #00f5ff;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── VIDEO BG ── */
+    .video-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: -2;
+      filter: brightness(1.18) contrast(1.05) saturate(1.1);
+    }
+
+    @media (max-width: 480px) {
+      .video-bg {
+        width: 100vw;
+        height: 100dvh;
+        object-fit: contain;
+        background: #000;
+      }
+    }
+
+    /* ── OVERLAY ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+        circle,
+        rgba(0, 20, 45, 0.22) 0%,
+        rgba(0, 0, 0, 0.88) 78%
+      );
+      z-index: -1;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: env(safe-area-inset-top, 14px) 24px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ── LOGO ── */
+    .logo {
+      font-size: clamp(18px, 5vw, 28px);
+      font-weight: 900;
+      text-shadow: 0 0 20px #00f5ff;
+      letter-spacing: 1px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #00f5ff;
+      text-decoration: none;
+      font-size: clamp(11px, 3vw, 15px);
+      transition: 0.3s;
+      padding: 10px 12px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    nav a:hover,
+    nav a:active {
+      color: white;
+      text-shadow: 0 0 15px #00f5ff;
+      background: rgba(0, 245, 255, 0.08);
+    }
+
+    /* ── TABLET ── */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: env(safe-area-inset-top, 10px) 16px 10px;
+      }
+      nav { gap: 2px; }
+    }
+
+    /* ── LANDSCAPE (S26 Ultra rotálva) ── */
+    @media (max-height: 500px) and (orientation: landscape) {
+      header {
+        flex-direction: row;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+      .logo { font-size: 16px; }
+      nav a { font-size: 11px; padding: 6px 8px; min-height: 36px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<video
+  <video
+    class="video-bg"
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+  </video>
 
-class="video-bg"
+  <div class="overlay"></div>
 
-autoplay
+  <header>
+    <div class="logo">AI MEDIA CREATOR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-muted
-
-loop
-
-playsinline
-
-id="bgVideo">
-
-<source
-
-src="background.mp4"
-
-type="video/mp4">
-
-</video>
-
-<div class="overlay"></div>
-
-<header>
-
-<div class="logo">
-
-AI MEDIA CREATOR
-
-</div>
-
-<nav>
-
-<a href="index.html">
-
-Home
-
-</a>
-
-<a href="about.html">
-
-About
-
-</a>
-
-<a href="portfolio.html">
-
-Portfolio
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-</nav>
-
-</header>
-
-<script>
-
-const video = document.getElementById('bgVideo');
-
-video.volume = 0.4;
-
-video.play().catch(()=>{});
-
-</script>
+  <script>
+    const video = document.getElementById('bgVideo');
+    video.volume = 0.4;
+    video.play().catch(() => {});
+  </script>
 
 </body>
-
 </html>
-```
