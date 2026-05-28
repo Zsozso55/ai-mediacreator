@@ -17,13 +17,13 @@
       width:100%; height:100%;
       object-fit:cover;
       z-index:-2;
-      filter: brightness(1.25) contrast(1.05) saturate(1.15); /* magas fényerő */
+      filter: brightness(1.28) contrast(1.05) saturate(1.15); /* magas fényerő */
     }
     
     .overlay{
       position:fixed;
       inset:0;
-      background:radial-gradient(circle, rgba(0,20,45,0.25) 0%, rgba(0,0,0,0.88) 75%);
+      background:radial-gradient(circle, rgba(0,20,45,0.22) 0%, rgba(0,0,0,0.85) 78%);
       z-index:-1;
     }
     
@@ -45,13 +45,17 @@
     nav a{color:#00f5ff;text-decoration:none;font-weight:500;font-size:1rem;transition:0.3s;}
     nav a:hover{text-shadow:0 0 15px #00f5ff;color:white;}
 
-    /* MOBIL - méret optimalizálás */
+    /* MOBIL OPTIMALIZÁLÁS - nagy telefonokra (S26 Ultra, iPhone 17 Max) */
     @media (max-width: 768px) {
-      .video-bg{filter: brightness(1.20) contrast(1.05);}
-      .overlay{background:radial-gradient(circle, rgba(0,20,45,0.35) 0%, rgba(0,0,0,0.94) 65%);}
+      .video-bg{filter: brightness(1.22) contrast(1.05);}
+      .overlay{background:radial-gradient(circle, rgba(0,20,45,0.32) 0%, rgba(0,0,0,0.92) 68%);}
       .logo{font-size:21px;}
-      nav{gap:12px;}
-      nav a{font-size:0.95rem;}
+      nav{gap:14px;}
+      nav a{font-size:0.96rem;}
+    }
+
+    @media (max-width: 480px) {
+      .overlay{background:radial-gradient(circle, rgba(0,20,45,0.40) 0%, rgba(0,0,0,0.94) 65%);}
     }
   </style>
 </head>
