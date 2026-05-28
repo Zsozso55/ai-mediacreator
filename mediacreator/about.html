@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about AI Media Creator - a next-generation AI creative studio specializing in video production, animation and digital content.">
-  <meta name="keywords" content="AI media studio, about AI creator, AI animation company, futuristic media">
+  <meta name="description" content="Learn about AI Media Creator - a next-generation AI creative studio.">
   <title>About Us - AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
@@ -12,19 +11,22 @@
     body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;}
     .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.4);}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:-1;}
-    header{position:fixed;top:0;width:100%;padding:25px 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
-    .logo{font-size:28px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
-    nav a{color:#00f5ff;margin:0 22px;text-decoration:none;font-weight:500;transition:0.3s;}
+    header{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);flex-wrap:wrap;gap:15px;}
+    .logo{font-size:26px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
+    nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+    nav a{color:#00f5ff;margin:5px 10px;text-decoration:none;font-weight:500;transition:0.3s;font-size:1.05rem;}
     nav a:hover{text-shadow:0 0 20px #00f5ff;color:white;}
-    .content{padding:140px 10% 100px;text-align:center;max-width:900px;margin:0 auto;}
-    h1{font-size:4rem;margin-bottom:40px;text-shadow:0 0 40px #00f5ff;}
-    p{font-size:1.25rem;line-height:1.8;opacity:0.9;margin-bottom:30px;}
+    .content{padding:120px 5% 80px;text-align:center;max-width:900px;margin:0 auto;}
+    h1{font-size:2.8rem;margin-bottom:40px;text-shadow:0 0 40px #00f5ff;}
+    p{font-size:1.15rem;line-height:1.8;opacity:0.9;margin-bottom:25px;}
+    @media (max-width: 600px) {
+      h1{font-size:2.3rem;}
+      .content{padding:100px 5% 60px;}
+    }
   </style>
 </head>
 <body>
-  <video class="video-bg" autoplay loop muted playsinline>
-    <source src="background.mp4" type="video/mp4">
-  </video>
+  <video class="video-bg" autoplay loop muted playsinline><source src="background.mp4" type="video/mp4"></video>
   <div class="overlay"></div>
 
   <header>
@@ -38,20 +40,9 @@
   </header>
 
   <div class="content">
-    <h1>About AI Media Creator</h1>
+    <h1>About Us</h1>
     <p>We are a cutting-edge creative studio specializing in AI-powered media production.</p>
     <p>Our mission is to empower creators and brands with breathtaking visuals, intelligent animations, and next-generation storytelling.</p>
   </div>
-
-  <audio id="clickSound" src="click.mp3"></audio>
-  <script>
-    document.addEventListener('click', (e) => {
-      if (e.target.tagName === 'BUTTON' || e.target.closest('a')) {
-        const sound = document.getElementById('clickSound');
-        sound.currentTime = 0;
-        sound.play().catch(() => {});
-      }
-    });
-  </script>
 </body>
 </html>
