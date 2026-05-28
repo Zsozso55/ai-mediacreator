@@ -7,47 +7,18 @@
   <title>AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-    
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;overflow-x:hidden;}
-    
-    .video-bg{
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      object-fit:contain;
-      z-index:-2;
-    }
-    
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:radial-gradient(circle, rgba(0,20,45,0.30) 0%, rgba(0,0,0,0.88) 75%);
-      z-index:-1;
-    }
-    
-    header{
-      position:fixed;
-      top:0; width:100%;
-      padding:18px 5%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:100;
-      backdrop-filter:blur(12px);
-      flex-wrap:wrap;
-      gap:10px;
-    }
+    .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:contain;z-index:-2;}
+    .overlay{position:fixed;inset:0;background:radial-gradient(circle, rgba(0,20,45,0.30) 0%, rgba(0,0,0,0.88) 75%);z-index:-1;}
+    header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);flex-wrap:wrap;gap:10px;}
     .logo{font-size:24px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
-
     nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
     nav a{color:#00f5ff;text-decoration:none;font-weight:500;font-size:1rem;transition:0.3s;}
     nav a:hover{text-shadow:0 0 15px #00f5ff;color:white;}
   </style>
 </head>
 <body>
-
-  <!-- EREDETI VIDEÓ - semmilyen filter nincs rajta -->
   <video class="video-bg" autoplay playsinline id="bgVideo">
     <source src="background.mp4" type="video/mp4">
   </video>
@@ -56,29 +27,18 @@
   <header>
     <div class="logo">AI MEDIA CREATOR</div>
     <nav>
-      <a href="index.html" id="homeLink">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="portfolio.html">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <script>
     const video = document.getElementById('bgVideo');
-    const homeLink = document.getElementById('homeLink');
-
     video.muted = false;
     video.volume = 0.42;
-
-    // Oldal betöltésekor indul
     video.play().catch(() => {});
-
-    // Home gombbal újraindítás
-    homeLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      video.currentTime = 0;
-      video.play();
-    });
   </script>
 </body>
 </html>
