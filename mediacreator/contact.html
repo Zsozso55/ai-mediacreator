@@ -3,46 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Request a quote or get in touch with AI Media Creator for your AI video, logo, or website project.">
-  <title>Contact Us - AI MEDIA CREATOR | Request a Quote</title>
-
+  <meta name="description" content="Contact AI Media Creator - Professional AI video and animation studio. Get in touch for your next project.">
+  <title>Contact Us - AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-    
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;}
     .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.4);}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:-1;}
-    
     header{position:fixed;top:0;width:100%;padding:25px 6%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
     .logo{font-size:28px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
     nav a{color:#00f5ff;margin:0 22px;text-decoration:none;font-weight:500;transition:0.3s;}
     nav a:hover{text-shadow:0 0 20px #00f5ff;color:white;}
-
     .content{padding:140px 8% 100px;text-align:center;}
-    h1{font-size:4rem;margin-bottom:50px;text-shadow:0 0 40px #00f5ff;}
-    
-    .form-container{max-width:700px;margin:0 auto;background:rgba(0,30,50,0.6);padding:50px;border:1px solid #00f5ff33;border-radius:20px;}
-    input, textarea{
-      width:100%;
-      padding:16px;
-      margin:12px 0;
-      background:rgba(0,20,40,0.8);
-      border:1px solid #00f5ff44;
+    h1{font-size:4rem;margin-bottom:40px;text-shadow:0 0 40px #00f5ff;}
+    .email-box{
+      background:rgba(0,30,50,0.7);
+      border:2px solid #00f5ff;
+      border-radius:20px;
+      padding:60px 50px;
+      max-width:620px;
+      margin:40px auto;
+    }
+    .email-link{
+      font-size:2rem;
       color:#00f5ff;
-      border-radius:8px;
-      font-family:inherit;
-      font-size:1.05rem;
+      text-decoration:none;
+      display:block;
+      margin:25px 0;
     }
-    input:focus, textarea:focus{
-      outline:none;
-      border-color:#00f5ff;
-      box-shadow:0 0 15px rgba(0,245,255,0.3);
+    .email-link:hover{
+      text-shadow:0 0 25px #00f5ff;
     }
-    textarea{height:180px; resize:vertical;}
-    
     .btn{
-      padding:18px 60px;
+      padding:18px 50px;
       font-size:1.2rem;
       background:transparent;
       color:#00f5ff;
@@ -50,7 +44,6 @@
       border-radius:50px;
       cursor:pointer;
       transition:all 0.4s;
-      margin-top:20px;
       text-transform:uppercase;
       letter-spacing:2px;
     }
@@ -59,7 +52,6 @@
       color:#000;
       box-shadow:0 0 40px #00f5ff;
     }
-    .email-info{margin:25px 0; font-size:1.1rem;}
   </style>
 </head>
 <body>
@@ -80,40 +72,19 @@
   </header>
 
   <div class="content">
-    <h1>Request a Quote</h1>
-    <p class="email-info">We usually reply within 24 hours</p>
+    <h1>Get In Touch</h1>
+    <p style="font-size:1.4rem; margin-bottom:40px;">Ready to bring your AI project to life?</p>
     
-    <div class="form-container">
-      <form id="quoteForm" action="mailto:info@ai-mediacreator.com" method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Full Name" required>
-        <input type="email" name="Email" placeholder="Your Email Address" required>
-        <input type="text" name="Company" placeholder="Company (optional)">
-        <input type="text" name="ProjectType" placeholder="Project Type (AI Logo, AI Video, AI Website, etc.)">
-        <textarea name="Message" placeholder="Describe your project in detail..." required></textarea>
-        
-        <button type="submit" class="btn">Send Request</button>
-      </form>
+    <div class="email-box">
+      <a href="mailto:info@ai-mediacreator.com" class="email-link">
+        info@ai-mediacreator.com
+      </a>
+      <button onclick="window.location.href='mailto:info@ai-mediacreator.com'" class="btn">
+        ✉️ Send us an Email
+      </button>
     </div>
+
+    <p style="margin-top:50px; opacity:0.7;">We usually reply within 24 hours.</p>
   </div>
-
-  <audio id="clickSound" src="click.mp3"></audio>
-
-  <script>
-    // Click sound
-    document.addEventListener('click', (e) => {
-      if (e.target.tagName === 'BUTTON' || e.target.closest('a')) {
-        const sound = document.getElementById('clickSound');
-        sound.currentTime = 0;
-        sound.play().catch(() => {});
-      }
-    });
-
-    // Optional: nicer form submission feedback
-    document.getElementById('quoteForm').addEventListener('submit', () => {
-      setTimeout(() => {
-        alert("Thank you! Your request has been sent to info@ai-mediacreator.com");
-      }, 500);
-    });
-  </script>
 </body>
 </html>
