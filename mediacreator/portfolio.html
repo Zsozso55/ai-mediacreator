@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore our AI-powered services.">
   <title>Services - AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
@@ -11,25 +10,13 @@
     body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;}
     .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.4);}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:-1;}
-    header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);flex-wrap:wrap;gap:10px;}
+    header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
     .logo{font-size:24px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
     nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
-    nav a{color:#00f5ff;margin:5px 10px;text-decoration:none;font-weight:500;transition:0.3s;font-size:1rem;}
+    nav a{color:#00f5ff;margin:5px 10px;text-decoration:none;font-weight:500;transition:0.3s;}
     nav a:hover{text-shadow:0 0 15px #00f5ff;color:white;}
-
-    /* LENTE BB KÖZÉPRE IGAZÍTÁS */
-    .main-content{
-      min-height:calc(100vh - 80px);
-      display:flex;
-      align-items:flex-start;     /* felülről indul */
-      justify-content:center;
-      padding-top:120px;          /* lentebb tolva */
-      text-align:center;
-    }
-    .content-wrapper{
-      width:100%;
-      max-width:1200px;
-    }
+    .main-content{min-height:calc(100vh - 80px);display:flex;align-items:flex-start;justify-content:center;padding-top:130px;text-align:center;}
+    .content-wrapper{width:100%;max-width:1200px;}
     h1{font-size:2.8rem;margin-bottom:50px;text-shadow:0 0 40px #00f5ff;}
     .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:25px;}
     .card{background:rgba(0,30,50,0.6);border:1px solid #00f5ff33;border-radius:15px;overflow:hidden;transition:0.4s;}
@@ -38,17 +25,10 @@
     .card video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
     .card h3{padding:20px 20px 10px;font-size:1.35rem;}
     .card p{padding:0 20px 25px;opacity:0.9;line-height:1.6;font-size:0.95rem;}
-
-    @media (max-width: 600px) {
-      h1{font-size:2.3rem;}
-      .main-content{padding-top:80px;}
-    }
   </style>
 </head>
 <body>
-  <video class="video-bg" autoplay loop muted playsinline>
-    <source src="background.mp4" type="video/mp4">
-  </video>
+  <video class="video-bg" autoplay loop muted playsinline><source src="background.mp4" type="video/mp4"></video>
   <div class="overlay"></div>
 
   <header>
@@ -66,34 +46,31 @@
       <h1>Our Services</h1>
       <div class="grid">
         <div class="card">
-          <div class="video-container">
-            <video autoplay loop muted playsinline>
-              <source src="ailogosaiimagine.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div class="video-container"><video autoplay loop muted playsinline><source src="ailogosaiimagine.mp4" type="video/mp4"></video></div>
           <h3>AI Logos &amp; AI Imagery</h3>
           <p>Stunning AI-generated logos, branding visuals, and high-quality imaginative images.</p>
         </div>
         <div class="card">
-          <div class="video-container">
-            <video autoplay loop muted playsinline>
-              <source src="aivideos.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div class="video-container"><video autoplay loop muted playsinline><source src="aivideos.mp4" type="video/mp4"></video></div>
           <h3>AI Videos</h3>
           <p>Cinematic AI videos, motion graphics, and dynamic animations.</p>
         </div>
         <div class="card">
-          <div class="video-container">
-            <video autoplay loop muted playsinline>
-              <source src="aiwebsites.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div class="video-container"><video autoplay loop muted playsinline><source src="aiwebsites.mp4" type="video/mp4"></video></div>
           <h3>AI Websites</h3>
           <p>Modern, futuristic websites and landing pages designed with AI.</p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- FOOTER -->
+  <footer style="text-align:center; padding:40px 20px; background:#000; border-top:1px solid #00f5ff33; font-size:0.95rem; color:#00f5ff99;">
+    <p>
+      <a href="privacy.html" style="color:#00f5ff; text-decoration:none; margin:0 15px;">Privacy Policy</a> • 
+      <a href="cookies.html" style="color:#00f5ff; text-decoration:none; margin:0 15px;">Cookie Policy</a>
+    </p>
+    <p style="margin-top:15px; opacity:0.6;">© 2026 AI MEDIA CREATOR • All Rights Reserved</p>
+  </footer>
 </body>
 </html>
