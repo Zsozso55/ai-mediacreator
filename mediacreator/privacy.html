@@ -6,15 +6,29 @@
   <title>Privacy Policy - AI MEDIA CREATOR</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Orbitron',sans-serif;color:#00f5ff;background:#000;}
-    .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(0.4);}
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:-1;}
-    header{position:fixed;top:0;width:100%;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(12px);}
-    .logo{font-size:24px;font-weight:900;text-shadow:0 0 25px #00f5ff;}
-    nav a{color:#00f5ff;margin:0 15px;text-decoration:none;font-weight:500;}
-    .content{padding:120px 8% 80px;max-width:900px;margin:0 auto;line-height:1.8;}
-    h1{font-size:2.8rem;margin-bottom:40px;text-shadow:0 0 40px #00f5ff;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Orbitron', sans-serif; color: #00f5ff; background: #000; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+    .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.4); }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: -1; }
+    header { position: fixed; top: 0; width: 100%; height: 60px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; backdrop-filter: blur(12px); background: rgba(0,0,0,0.4); }
+    .logo { font-size: 22px; font-weight: 900; text-shadow: 0 0 25px #00f5ff; }
+    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+    nav a { color: #00f5ff; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 5px 10px; transition: 0.3s; }
+    nav a:hover { text-shadow: 0 0 15px #00f5ff; color: white; }
+    .main-content { flex: 1; padding: 110px 8% 50px; max-width: 900px; margin: 0 auto; width: 100%; line-height: 1.8; text-align: center; z-index: 2; }
+    h1 { font-size: 2.8rem; margin-bottom: 25px; text-shadow: 0 0 40px #00f5ff; }
+    p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 15px; }
+    footer { text-align: center; padding: 12px 20px; background: #000; border-top: 1px solid rgba(0, 245, 255, 0.2); font-size: 0.85rem; color: rgba(0, 245, 255, 0.6); z-index: 10; margin-top: auto; }
+    footer a { color: #00f5ff; text-decoration: none; margin: 0 15px; transition: 0.3s; }
+    footer a:hover { color: white; text-shadow: 0 0 10px #00f5ff; }
+    .copyright { margin-top: 5px; opacity: 0.6; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; height: auto; padding: 15px 5%; }
+      nav { margin-top: 12px; gap: 10px; }
+      h1 { font-size: 2.2rem; }
+      .main-content { padding-top: 130px; }
+    }
   </style>
 </head>
 <body>
@@ -31,13 +45,21 @@
     </nav>
   </header>
 
-  <div class="content">
+  <div class="main-content">
     <h1>Privacy Policy</h1>
-    <p>Last updated: May 2026</p>
+    <p style="opacity: 0.6; margin-bottom: 30px;">Last updated: May 2026</p>
     <p>We respect your privacy. This website does not collect personal data through forms or tracking tools.</p>
     <p>We only use essential cookies to make the site work properly (video playback, navigation). No third-party analytics or advertising cookies are used.</p>
     <p>If you contact us via email, we only use your email address to reply to your message.</p>
-    <p>For any questions, contact us at: <a href="mailto:info@ai-mediacreator.com" style="color:#00f5ff;">info@ai-mediacreator.com</a></p>
+    <p style="margin-top: 25px;">For any questions, contact us at: <br><a href="mailto:info@ai-mediacreator.com" style="color:#00f5ff; text-decoration:none; font-size: 1.1rem; font-weight: bold;">info@ai-mediacreator.com</a></p>
   </div>
+
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> • 
+      <a href="cookies.html">Cookie Policy</a>
+    </p>
+    <p class="copyright">© 2026 AI MEDIA CREATOR • All Rights Reserved</p>
+  </footer>
 </body>
 </html>
