@@ -40,4 +40,10 @@ export default async function handler(req, res) {
         // Ezt kiírjuk a Vercel logba, így látni fogod, pontosan melyik modellt találta meg a kód
         console.log("Automatikusan kiválasztott modell:", selectedModel.name);
 
-        //
+        // 3. LÉPÉS: Elküldjük az üzenetet a dinamikusan kiválasztott, garantáltan létező modellnek
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/${selectedModel.name}:generateContent?key=${apiKey}`;
+
+        const aiResponse = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.
