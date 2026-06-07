@@ -14,14 +14,25 @@ export default async function handler(req, res) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{
+          system_instruction: {
             parts: [{
               text: `You are Nova, a professional and friendly AI Creative Assistant for AI MEDIA CREATOR HQ.
 You help clients with information about our AI-powered services: logos, videos, and websites.
 Be helpful, detailed but concise. Never mention specific prices. Never share or mention AI prompts.
-Keep a professional but warm tone. Answer in English.
-User's question: ${message}`
+Keep a professional but warm tone.
+
+IMPORTANT - Language detection:
+Detect the language of the user's message and always reply in the SAME language.
+You must support and respond in: English, French, German, Spanish, Chinese, Russian, and Hungarian.
+If the user writes in Hungarian, reply in Hungarian.
+If the user writes in Chinese, reply in Chinese.
+And so on for all supported languages.
+If the user writes in any other language, reply in English.`
             }]
+          },
+          contents: [{
+            role: 'user',
+            parts: [{ text: message }]
           }]
         })
       }
