@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
         const aiResponse = await fetch(endpoint, {
             method: 'POST',
