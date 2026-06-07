@@ -6,45 +6,38 @@ export default async function handler(req, res) {
     const { message } = req.body;
     const apiKey = process.env.GEMINI_API_KEY; 
 
-    // Ellenőrizzük, hogy a Vercel egyáltalán látja-e a kulcsot
     if (!apiKey) {
-        console.error("Hiba: Nincs beállítva a GEMINI_API_KEY a Vercel Environment Variables között!");
+        console.error("Hiba: Nincs GEMINI_API_KEY beállítva a Vercelen!");
         return res.status(500).json({ reply: "Szerver beállítási hiba: Hiányzik az API kulcs." });
     }
 
     try {
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+        // 1. LÉPÉS: Lekérdezzük az éppen most elérhető modellek listáját
+        const modelsRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+        const modelsData = await modelsRes.json();
 
-        const aiResponse = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: message }] }]
-            })
-        });
-
-        const data = await aiResponse.json();
-        
-        // Hibakeresés: Írjuk ki a Vercel logba a nyers választ a Google-től
-        console.log("Google API nyers válasz:", JSON.stringify(data));
-
-        // Ha a Google hibaüzenetet küldött (pl. rossz a kulcs)
-        if (data.error) {
-            console.error("Google API hiba:", data.error.message);
-            return res.status(500).json({ reply: "Hiba történt az AI szolgáltatásban. (Nézd meg a Vercel logot)" });
+        if (modelsData.error) {
+            console.error("Modell lekérdezési hiba:", modelsData.error);
+            return res.status(500).json({ reply: "Hiba az AI szerverrel való kapcsolatban." });
         }
 
-        // Ha nincs hiba, de valamiért mégis üres a válasz
-        if (!data.candidates || data.candidates.length === 0) {
-            return res.status(500).json({ reply: "Az AI nem küldött értékelhető választ." });
+        // 2. LÉPÉS: Keresünk egy olyan modellt, ami biztosan támogatja a chat/szöveggenerálást
+        const validModels = modelsData.models.filter(m => 
+            m.supportedGenerationMethods && 
+            m.supportedGenerationMethods.includes("generateContent")
+        );
+
+        if (validModels.length === 0) {
+            console.error("Nincs elérhető generatív modell a fiókban.");
+            return res.status(500).json({ reply: "Jelenleg nincs elérhető AI modell." });
         }
 
-        // Ha minden tökéletes, kiolvassuk és visszaküldjük a szöveget
-        const replyText = data.candidates[0].content.parts[0].text;
-        res.status(200).json({ reply: replyText });
-        
-    } catch (error) {
-        console.error("Hálózati hiba a szerveroldalon:", error);
-        res.status(500).json({ reply: "Hálózati hiba történt a szerveren." });
-    }
-}
+        // Preferáljuk a gyors 'flash' vagy okos 'pro' modelleket, ha van, különben az elsőt használjuk
+        const selectedModel = validModels.find(m => m.name.includes("flash")) 
+                           || validModels.find(m => m.name.includes("pro")) 
+                           || validModels[0];
+
+        // Ezt kiírjuk a Vercel logba, így látni fogod, pontosan melyik modellt találta meg a kód
+        console.log("Automatikusan kiválasztott modell:", selectedModel.name);
+
+        //
