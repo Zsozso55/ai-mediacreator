@@ -70,4 +70,190 @@
     <p class="copyright">© 2026 AI MEDIA CREATOR • All Rights Reserved</p>
   </footer>
 </body>
+<style>
+    #ai-chat-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background-color: #050508;
+        border: 1px solid #00e5ff;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+        z-index: 9999;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    #ai-chat-header {
+        background: linear-gradient(90deg, #1a1a2e 0%, #050508 100%);
+        border-bottom: 1px solid #8a2be2;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    #ai-chat-toggle-btn {
+        background: none;
+        border: none;
+        color: #00e5ff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 0 5px;
+    }
+
+    #ai-chat-messages {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .chat-message {
+        padding: 10px 14px;
+        border-radius: 8px;
+        max-width: 80%;
+        line-height: 1.4;
+        font-size: 14px;
+    }
+
+    .ai-message {
+        background-color: #1a1a2e;
+        align-self: flex-start;
+        border-left: 2px solid #8a2be2;
+    }
+
+    .user-message {
+        background-color: #00e5ff;
+        color: #000;
+        align-self: flex-end;
+        border-right: 2px solid #008b99;
+    }
+
+    #ai-chat-input-area {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #333;
+        background-color: #0a0a0f;
+    }
+
+    #ai-chat-input {
+        flex-grow: 1;
+        background-color: transparent;
+        border: 1px solid #444;
+        color: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    #ai-chat-input:focus {
+        border-color: #00e5ff;
+    }
+
+    #ai-chat-send-btn {
+        background-color: #8a2be2;
+        color: #fff;
+        border: none;
+        padding: 0 15px;
+        margin-left: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    #ai-chat-send-btn:hover {
+        background-color: #9d4edd;
+    }
+</style>
+
+<div id="ai-chat-widget">
+    <div id="ai-chat-header">
+        <span>AI Assistant</span>
+        <button id="ai-chat-toggle-btn">_</button>
+    </div>
+    <div id="ai-chat-messages">
+        <div class="chat-message ai-message">Welcome! How can I help you today?</div>
+    </div>
+    <div id="ai-chat-input-area">
+        <input type="text" id="ai-chat-input" placeholder="Type your question...">
+        <button id="ai-chat-send-btn">Send</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('ai-chat-toggle-btn');
+        const chatWidget = document.getElementById('ai-chat-widget');
+        const messagesContainer = document.getElementById('ai-chat-messages');
+        const inputField = document.getElementById('ai-chat-input');
+        const sendBtn = document.getElementById('ai-chat-send-btn');
+
+        // Ablak kinyitása / összecsukása
+        toggleBtn.addEventListener('click', () => {
+            if (chatWidget.style.height === '50px') {
+                chatWidget.style.height = '450px';
+                toggleBtn.textContent = '_';
+            } else {
+                chatWidget.style.height = '50px';
+                toggleBtn.textContent = '□';
+            }
+        });
+
+        // Üzenet küldése funkció
+        async function sendChatMessage() {
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            appendMessage(userText, 'user-message');
+            inputField.value = '';
+            
+            try {
+                // A saját Vercel API végpontod meghívása
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: userText })
+                });
+                
+                const data = await response.json();
+                
+                if (data.reply) {
+                    appendMessage(data.reply, 'ai-message');
+                } else {
+                    appendMessage("Error: Invalid response from server.", 'ai-message');
+                }
+                
+            } catch (error) {
+                appendMessage("Error: Could not connect to the server.", 'ai-message');
+            }
+        }
+
+        // Üzenet hozzáfűzése a felülethez
+        function appendMessage(text, className) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${className}`;
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Gombnyomás és Enter gomb figyelése
+        sendBtn.addEventListener('click', sendChatMessage);
+        inputField.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendChatMessage();
+        });
+    });
+</script>
 </html>
