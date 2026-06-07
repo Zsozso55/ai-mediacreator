@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   try {
     const geminiResponse = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: {
@@ -41,7 +41,7 @@ User's question: ${message}`
 
     if (!geminiResponse.ok) {
       console.error('Gemini API error:', data);
-      return res.status(500).json({ error: 'AI service error' });
+      return res.status(500).json({ error: 'AI service error. Please try again later.' });
     }
 
     // Biztonságos válasz kinyerés
