@@ -6,6 +6,16 @@
   <meta name="description" content="Learn about AI Media Creator, a creative studio dedicated to empowering brands with intelligent animations, AI imagery, and breathtaking visual storytelling.">
   <meta name="keywords" content="about AI media creator, AI studio, creative AI agency, AI storytelling">
   <title>About Us | AI MEDIA CREATOR</title>
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://ai-mediacreator.com/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Us | AI MEDIA CREATOR">
+  <meta property="og:description" content="A creative studio empowering brands with intelligent animations, AI imagery, and visual storytelling.">
+  <meta property="og:url" content="https://ai-mediacreator.com/about.html">
+  <meta property="og:type" content="website">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -91,7 +101,6 @@
         fill: #fff;
     }
 
-    /* WIDGET - alapból rejtve */
     #ai-chat-widget {
         position: fixed;
         bottom: 90px;
@@ -273,14 +282,12 @@
         const inputField = document.getElementById('ai-chat-input');
         const sendBtn = document.getElementById('ai-chat-send-btn');
 
-        // Megnyitás
         fab.addEventListener('click', () => {
             chatWidget.classList.add('open');
             fab.style.display = 'none';
             inputField.focus();
         });
 
-        // Bezárás
         closeBtn.addEventListener('click', () => {
             chatWidget.classList.remove('open');
             fab.style.display = 'flex';
@@ -332,3 +339,5 @@
         });
     });
 </script>
+</body>
+</html>
