@@ -181,15 +181,27 @@ main{ flex:1; }
 /* ---------- service grid ---------- */
 .grid{ display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); margin-top:42px; }
 .card{
-  position:relative; padding:30px 26px; border-radius:var(--radius);
+  position:relative; display:block; padding:30px 26px; border-radius:var(--radius);
   background:linear-gradient(180deg, var(--ink-3), var(--ink-2));
-  border:1px solid var(--line-soft);
+  border:1px solid var(--line-soft); color:inherit;
   transition:transform .35s, border-color .35s, box-shadow .35s;
 }
 .card:hover{ transform:translateY(-5px); border-color:var(--line); box-shadow:var(--glow); }
 .card .idx{ font-family:var(--display); font-size:.74rem; letter-spacing:.2em; color:var(--cyan-deep); }
 .card h3{ font-size:1.18rem; margin:14px 0 10px; color:var(--text); }
 .card p{ font-size:.94rem; color:var(--muted); }
+.card .go{
+  display:inline-block; margin-top:16px; font-family:var(--display);
+  font-size:.8rem; letter-spacing:.06em; color:var(--cyan);
+  opacity:.7; transition:transform .3s, opacity .3s;
+}
+.card:hover .go{ opacity:1; transform:translateX(4px); }
+.more{
+  display:inline-block; margin-top:36px; font-family:var(--display);
+  font-size:.9rem; letter-spacing:.04em; color:var(--cyan);
+  border-bottom:1px solid var(--line); padding-bottom:3px; transition:color .25s, border-color .25s;
+}
+.more:hover{ color:var(--mist); border-color:var(--cyan); }
 
 /* ---------- showcase (portfolio videos) ---------- */
 .showcase{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:42px; }
