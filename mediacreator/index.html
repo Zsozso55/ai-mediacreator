@@ -3,426 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI Media Creator is a cutting-edge creative studio specializing in AI-powered video production, AI logos, animations, and futuristic web design.">
-  <meta name="keywords" content="AI video, AI media, AI creator, AI logo, artificial intelligence animation, futuristic web design, media production">
-  <title>AI MEDIA CREATOR | Next-Gen AI Video & Media Studio</title>
- 
-  <!-- CANONICAL -->
+  <meta name="description" content="AI Media Creator is a creative studio specialising in AI-powered video production, AI logos, animation and futuristic web design.">
+  <title>AI MEDIA CREATOR | AI Video, Logos & Web Design Studio</title>
+
   <link rel="canonical" href="https://ai-mediacreator.com/">
- 
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI MEDIA CREATOR | Next-Gen AI Video & Media Studio">
-  <meta property="og:description" content="AI-powered video production, AI logos, animations, and futuristic web design.">
+  <meta property="og:title" content="AI MEDIA CREATOR | AI Video, Logos & Web Design Studio">
+  <meta property="og:description" content="AI Media Creator is a creative studio specialising in AI-powered video production, AI logos, animation and futuristic web design.">
   <meta property="og:url" content="https://ai-mediacreator.com/">
   <meta property="og:type" content="website">
- 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Orbitron', sans-serif; color: #00f5ff; background: #000; overflow-x: hidden; }
- 
-    /* HEADER */
-    header { position: fixed; top: 0; width: 100%; height: 60px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; backdrop-filter: blur(12px); background: rgba(0,0,0,0.4); }
-    .logo { font-size: 22px; font-weight: 900; text-shadow: 0 0 25px #00f5ff; }
-    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-    nav a { color: #00f5ff; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 5px 10px; transition: 0.3s; }
-    nav a:hover { text-shadow: 0 0 15px #00f5ff; color: white; }
- 
-    /* HERO – a videó teljes képernyőn, semmi nem takarja */
-    .hero { position: relative; width: 100%; height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hero video { width: 100%; height: 100%; object-fit: contain; background: #000; }
- 
-    /* Lefelé mutató nyíl */
-    .scroll-cue { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; color: #00f5ff; opacity: 0.85; transition: opacity 0.3s; }
-    .scroll-cue:hover { opacity: 1; }
-    .scroll-cue span { font-size: 0.75rem; letter-spacing: 2px; text-shadow: 0 0 10px #00f5ff; }
-    .scroll-cue svg { width: 30px; height: 30px; fill: #00f5ff; filter: drop-shadow(0 0 8px #00f5ff); animation: bob 2s ease-in-out infinite; }
-    /* Amikor a videó véget ér, erősebben hívja a figyelmet */
-    .scroll-cue.active svg { animation: bobStrong 1s ease-in-out infinite; }
-    .scroll-cue.active { opacity: 1; }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
-    @keyframes bobStrong { 0%,100% { transform: translateY(0); } 50% { transform: translateY(14px); } }
- 
-    /* TARTALOM – a videó alatt, görgetésre */
-    .content { position: relative; background: linear-gradient(180deg, #000 0%, #03060f 40%, #000 100%); padding: 90px 5% 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .content h1 { font-size: 2.6rem; font-weight: 900; text-shadow: 0 0 30px #00f5ff; margin-bottom: 22px; line-height: 1.2; max-width: 900px; }
-    .content .lead { font-size: 1.15rem; line-height: 1.7; color: rgba(0,245,255,0.85); max-width: 760px; margin-bottom: 45px; font-family: 'Segoe UI', sans-serif; }
-    .services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1100px; margin-bottom: 45px; }
-    .service-card { background: rgba(0,20,45,0.55); border: 1px solid rgba(0,245,255,0.25); border-radius: 12px; padding: 24px 22px; width: 240px; backdrop-filter: blur(6px); transition: 0.3s; }
-    .service-card:hover { border-color: #00f5ff; box-shadow: 0 0 22px rgba(0,245,255,0.3); transform: translateY(-4px); }
-    .service-card h2 { font-size: 1.1rem; margin-bottom: 10px; text-shadow: 0 0 12px #00f5ff; }
-    .service-card p { font-size: 0.92rem; line-height: 1.5; color: rgba(0,245,255,0.75); font-family: 'Segoe UI', sans-serif; }
-    .cta { display: inline-block; padding: 14px 34px; background: linear-gradient(135deg, #8a2be2, #00e5ff); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; letter-spacing: 1px; box-shadow: 0 0 20px rgba(0,229,255,0.4); transition: 0.3s; }
-    .cta:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,229,255,0.6); }
- 
-    footer { text-align: center; padding: 14px 20px; background: #000; border-top: 1px solid rgba(0, 245, 255, 0.2); font-size: 0.85rem; color: rgba(0, 245, 255, 0.6); }
-    footer a { color: #00f5ff; text-decoration: none; margin: 0 15px; transition: 0.3s; }
-    footer a:hover { color: white; text-shadow: 0 0 10px #00f5ff; }
-    .copyright { margin-top: 5px; opacity: 0.6; }
- 
-    @media (max-width: 768px) {
-      header { flex-direction: column; height: auto; padding: 12px 5%; }
-      nav { margin-top: 10px; gap: 10px; }
-      .content h1 { font-size: 1.8rem; }
-      .content .lead { font-size: 1rem; }
-      .service-card { width: 100%; max-width: 320px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .scroll-cue svg { animation: none; }
-    }
-  </style>
+  <meta property="og:image" content="https://ai-mediacreator.com/assets/background-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "AI MEDIA CREATOR", "url": "https://ai-mediacreator.com/", "email": "info@ai-mediacreator.com", "description": "Creative studio specialising in AI-powered video, logos, animation and web design.", "logo": "https://ai-mediacreator.com/assets/background-poster.jpg"}</script>
 </head>
 <body>
- 
-  <header>
-    <div class="logo">AI MEDIA CREATOR</div>
-    <nav>
-      <a href="index.html">Home</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">AI <b>MEDIA</b> CREATOR</a>
+    <nav class="nav-desktop">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span></button>
   </header>
- 
-  <!-- NYITÓ VIDEÓ: teljes képernyő, semmi nem takarja -->
-  <section class="hero">
-    <video autoplay playsinline id="bgVideo">
-      <source src="background.mp4" type="video/mp4">
-    </video>
-    <a href="#content" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
-      <span>SCROLL</span>
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-6-6 1.41-1.41L12 13.17l4.59-4.58L18 10z"/></svg>
-    </a>
-  </section>
- 
-  <!-- TARTALOM: a videó alatt, görgetésre jelenik meg -->
-  <section class="content" id="content">
-    <h1>AI Media Creator — Professional AI Video &amp; Media Studio</h1>
-    <p class="lead">
-      We craft AI-powered video production, futuristic logos, animations and
-      next-generation web design. From the first concept to the final render,
-      our studio turns bold ideas into striking visual media.
-    </p>
- 
-    <div class="services">
-      <div class="service-card">
-        <h2>AI Video Production</h2>
-        <p>Cinematic, AI-generated video content for brands, campaigns and social media.</p>
+
+  <!-- drawer lives OUTSIDE <header>: a blurred ancestor would trap position:fixed -->
+  <nav class="drawer">
+    <button class="drawer-close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-words">
+          <span class="eyebrow">AI Media Studio</span>
+          <h1>Bold ideas, rendered into <em>striking visual media</em>.</h1>
+          <p class="lead">We craft AI-powered video, futuristic logos, animation and next-generation web design — from the first concept to the final frame.</p>
+          <a href="#what" class="btn">See what we do</a>
+        </div>
+        <div class="hero-stage">
+          <video id="heroVideo" poster="assets/background-poster.jpg" autoplay muted loop playsinline preload="metadata">
+            <source src="background.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-      <div class="service-card">
-        <h2>AI Logos &amp; Branding</h2>
-        <p>Unique, futuristic logo and brand identity design powered by AI tools.</p>
+      <a href="#what" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
+        <span>SCROLL</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-6-6 1.41-1.41L12 13.17l4.59-4.58L18 10z"/></svg>
+      </a>
+    </section>
+
+    <section class="section intro" id="what">
+      <div class="wrap">
+        <span class="eyebrow">What we do</span>
+        <h2>A studio built around generative AI.</h2>
+        <p class="lead">Four disciplines, one visual language. Each project is produced end to end, so the look stays coherent from a single logo to a full campaign.</p>
+        <div class="grid">
+        <article class="card">
+          <span class="idx">01</span>
+          <h3>AI Video Production</h3>
+          <p>Cinematic, AI-generated video for brands, campaigns and social — concept to final render.</p>
+        </article>
+        <article class="card">
+          <span class="idx">02</span>
+          <h3>AI Logos &amp; Imagery</h3>
+          <p>Distinctive logos, brand visuals and high-quality generated imagery that set your identity apart.</p>
+        </article>
+        <article class="card">
+          <span class="idx">03</span>
+          <h3>Animation</h3>
+          <p>Motion graphics and animated sequences that give a brand movement and life.</p>
+        </article>
+        <article class="card">
+          <span class="idx">04</span>
+          <h3>AI Web Design</h3>
+          <p>Modern, responsive, fast websites and landing pages, designed and built with AI.</p>
+        </article>
+        </div>
       </div>
-      <div class="service-card">
-        <h2>Animations</h2>
-        <p>Dynamic motion graphics and animated visuals that bring your brand to life.</p>
+    </section>
+
+    <section class="section cta-band">
+      <div class="wrap">
+        <h2>Have something in mind?</h2>
+        <p class="lead" style="margin:0 auto 28px;">Tell us about the project and we'll shape the visuals around it.</p>
+        <a href="contact.html" class="btn">Start a project</a>
       </div>
-      <div class="service-card">
-        <h2>Web Design</h2>
-        <p>Modern, responsive, futuristic websites built to impress and convert.</p>
-      </div>
-    </div>
- 
-    <a href="portfolio.html" class="cta">Explore Our Services</a>
-  </section>
- 
-  <footer>
-    <p>
-      <a href="privacy.html">Privacy Policy</a> •
-      <a href="cookies.html">Cookie Policy</a>
-    </p>
-    <p class="copyright">© 2026 AI MEDIA CREATOR • All Rights Reserved</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="privacy.html">Privacy Policy</a> • <a href="cookies.html">Cookie Policy</a></p>
+    <p class="copy">© 2026 AI MEDIA CREATOR — All rights reserved</p>
   </footer>
- 
-  <script>
-    const video = document.getElementById('bgVideo');
-    const scrollCue = document.getElementById('scrollCue');
- 
-    // Hang bekapcsolva (ahogy az eredetiben volt)
-    video.muted = false;
-    video.volume = 0.42;
-    video.play().catch(() => {
-      // Ha a böngésző blokkolja a hangos autoplayt, némán indítjuk
-      video.muted = true;
-      video.play().catch(() => {});
-    });
- 
-    // Amikor a videó véget ér: a nyíl erősebben pulzál, hogy lefelé hívja a figyelmet
-    video.addEventListener('ended', () => {
-      scrollCue.classList.add('active');
-    });
-  </script>
- 
-<style>
-    /* LEBEGŐ GOMB */
-    #ai-chat-fab {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 56px;
-        height: 56px;
-        background: linear-gradient(135deg, #8a2be2, #00e5ff);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
- 
-    #ai-chat-fab:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 30px rgba(0, 229, 255, 0.6);
-    }
- 
-    #ai-chat-fab svg {
-        width: 26px;
-        height: 26px;
-        fill: #fff;
-    }
- 
-    #ai-chat-widget {
-        position: fixed;
-        bottom: 90px;
-        right: 20px;
-        width: 350px;
-        height: 450px;
-        background-color: #050508;
-        border: 1px solid #00e5ff;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
-        display: flex;
-        flex-direction: column;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #ffffff;
-        z-index: 9998;
-        overflow: hidden;
-        transform: scale(0.8) translateY(20px);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.25s ease, opacity 0.25s ease;
-        transform-origin: bottom right;
-    }
- 
-    #ai-chat-widget.open {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-        pointer-events: all;
-    }
- 
-    @media (max-width: 480px) {
-        #ai-chat-widget {
-            width: calc(100vw - 24px);
-            height: 380px;
-            bottom: 85px;
-            right: 12px;
-            left: 12px;
-            transform-origin: bottom center;
-        }
- 
-        #ai-chat-fab {
-            bottom: 16px;
-            right: 16px;
-        }
-    }
- 
-    #ai-chat-header {
-        background: linear-gradient(90deg, #1a1a2e 0%, #050508 100%);
-        border-bottom: 1px solid #8a2be2;
-        padding: 12px 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: bold;
-        letter-spacing: 1px;
-        font-size: 14px;
-        flex-shrink: 0;
-    }
- 
-    #ai-chat-close-btn {
-        background: none;
-        border: none;
-        color: #00e5ff;
-        cursor: pointer;
-        font-size: 20px;
-        padding: 0 5px;
-        line-height: 1;
-        min-width: 30px;
-        min-height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
- 
-    #ai-chat-messages {
-        flex-grow: 1;
-        padding: 12px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        -webkit-overflow-scrolling: touch;
-    }
- 
-    .chat-message {
-        padding: 9px 12px;
-        border-radius: 8px;
-        max-width: 85%;
-        line-height: 1.4;
-        font-size: 13px;
-        word-break: break-word;
-    }
- 
-    .ai-message {
-        background-color: #1a1a2e;
-        align-self: flex-start;
-        border-left: 2px solid #8a2be2;
-    }
- 
-    .user-message {
-        background-color: #00e5ff;
-        color: #000;
-        align-self: flex-end;
-        border-right: 2px solid #008b99;
-    }
- 
-    #ai-chat-input-area {
-        display: flex;
-        padding: 10px;
-        border-top: 1px solid #333;
-        background-color: #0a0a0f;
-        flex-shrink: 0;
-        gap: 8px;
-    }
- 
-    #ai-chat-input {
-        flex-grow: 1;
-        background-color: transparent;
-        border: 1px solid #444;
-        color: #fff;
-        padding: 10px;
-        border-radius: 6px;
-        outline: none;
-        font-size: 16px;
-        min-width: 0;
-    }
- 
-    #ai-chat-input:focus {
-        border-color: #00e5ff;
-    }
- 
-    #ai-chat-send-btn {
-        background-color: #8a2be2;
-        color: #fff;
-        border: none;
-        padding: 0 14px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 13px;
-        transition: background-color 0.3s;
-        white-space: nowrap;
-        flex-shrink: 0;
-        min-height: 42px;
-    }
- 
-    #ai-chat-send-btn:hover {
-        background-color: #9d4edd;
-    }
-</style>
- 
-<!-- LEBEGŐ GOMB -->
-<button id="ai-chat-fab" aria-label="Open chat">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-    </svg>
-</button>
- 
-<!-- CHAT WIDGET -->
-<div id="ai-chat-widget">
-    <div id="ai-chat-header">
-        <span>✦ Nova AI Assistant</span>
-        <button id="ai-chat-close-btn">✕</button>
+
+  <!-- Nova assistant -->
+  <button id="novaFab" class="nova-fab" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  </button>
+  <aside id="nova" class="nova" aria-label="Nova assistant">
+    <div class="nova-head"><span>✦ Nova — AI assistant</span><button id="novaClose" aria-label="Close">✕</button></div>
+    <div id="novaLog" class="nova-log"><div class="msg ai">Hi, I'm Nova. Ask me about our AI video, logo or web work — or how to start a project.</div></div>
+    <div class="nova-input">
+      <input id="novaInput" type="text" placeholder="Type your question…" autocomplete="off">
+      <button id="novaSend">Send</button>
     </div>
-    <div id="ai-chat-messages">
-        <div class="chat-message ai-message">Welcome! How can I help you today?</div>
-    </div>
-    <div id="ai-chat-input-area">
-        <input type="text" id="ai-chat-input" placeholder="Type your question..." autocomplete="off">
-        <button id="ai-chat-send-btn">Send</button>
-    </div>
-</div>
- 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const fab = document.getElementById('ai-chat-fab');
-        const chatWidget = document.getElementById('ai-chat-widget');
-        const closeBtn = document.getElementById('ai-chat-close-btn');
-        const messagesContainer = document.getElementById('ai-chat-messages');
-        const inputField = document.getElementById('ai-chat-input');
-        const sendBtn = document.getElementById('ai-chat-send-btn');
- 
-        fab.addEventListener('click', () => {
-            chatWidget.classList.add('open');
-            fab.style.display = 'none';
-            inputField.focus();
-        });
- 
-        closeBtn.addEventListener('click', () => {
-            chatWidget.classList.remove('open');
-            fab.style.display = 'flex';
-        });
- 
-        async function sendChatMessage() {
-            const userText = inputField.value.trim();
-            if (!userText) return;
- 
-            appendMessage(userText, 'user-message');
-            inputField.value = '';
-            sendBtn.disabled = true;
-            sendBtn.textContent = '...';
- 
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userText })
-                });
- 
-                const data = await response.json();
- 
-                if (data.reply) {
-                    appendMessage(data.reply, 'ai-message');
-                } else {
-                    appendMessage("Error: Invalid response from server.", 'ai-message');
-                }
- 
-            } catch (error) {
-                appendMessage("Error: Could not connect to the server.", 'ai-message');
-            } finally {
-                sendBtn.disabled = false;
-                sendBtn.textContent = 'Send';
-            }
-        }
- 
-        function appendMessage(text, className) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${className}`;
-            messageDiv.textContent = text;
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
- 
-        sendBtn.addEventListener('click', sendChatMessage);
-        inputField.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendChatMessage();
-        });
-    });
-</script>
+  </aside>
+
+  <script src="app.js"></script>
 </body>
 </html>

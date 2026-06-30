@@ -3,73 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cookie Policy for AI Media Creator. Learn about how we use essential cookies to ensure our website functions correctly.">
+  <meta name="description" content="How AI Media Creator uses essential cookies to keep the website working correctly.">
   <title>Cookie Policy | AI MEDIA CREATOR</title>
 
-  <!-- CANONICAL -->
   <link rel="canonical" href="https://ai-mediacreator.com/cookies.html">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Cookie Policy | AI MEDIA CREATOR">
   <meta property="og:description" content="How AI Media Creator uses essential cookies to keep the website working correctly.">
   <meta property="og:url" content="https://ai-mediacreator.com/cookies.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ai-mediacreator.com/assets/background-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Orbitron', sans-serif; color: #00f5ff; background: #000; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
-    .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.4); }
-    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: -1; }
-    header { position: fixed; top: 0; width: 100%; height: 60px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; backdrop-filter: blur(12px); background: rgba(0,0,0,0.4); }
-    .logo { font-size: 22px; font-weight: 900; text-shadow: 0 0 25px #00f5ff; }
-    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-    nav a { color: #00f5ff; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 5px 10px; transition: 0.3s; }
-    nav a:hover { text-shadow: 0 0 15px #00f5ff; color: white; }
-    .main-content { flex: 1; padding: 110px 8% 50px; max-width: 900px; margin: 0 auto; width: 100%; line-height: 1.8; text-align: center; z-index: 2; }
-    h1 { font-size: 2.8rem; margin-bottom: 25px; text-shadow: 0 0 40px #00f5ff; }
-    p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 15px; }
-    footer { text-align: center; padding: 12px 20px; background: #000; border-top: 1px solid rgba(0, 245, 255, 0.2); font-size: 0.85rem; color: rgba(0, 245, 255, 0.6); z-index: 10; margin-top: auto; }
-    footer a { color: #00f5ff; text-decoration: none; margin: 0 15px; transition: 0.3s; }
-    footer a:hover { color: white; text-shadow: 0 0 10px #00f5ff; }
-    .copyright { margin-top: 5px; opacity: 0.6; }
-
-    @media (max-width: 768px) {
-      header { flex-direction: column; height: auto; padding: 15px 5%; }
-      nav { margin-top: 12px; gap: 10px; }
-      .main-content { padding-top: 180px; } 
-      h1 { font-size: 2.2rem; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <video class="video-bg" autoplay loop muted playsinline><source src="background.mp4" type="video/mp4"></video>
-  <div class="overlay"></div>
 
-  <header>
-    <div class="logo">AI MEDIA CREATOR</div>
-    <nav>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">AI <b>MEDIA</b> CREATOR</a>
+    <nav class="nav-desktop">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span></button>
   </header>
 
-  <div class="main-content">
-    <h1>Cookie Policy</h1>
-    <p style="opacity: 0.6; margin-bottom: 30px;">Last updated: May 2026</p>
-    <p>We use only essential cookies to ensure the website functions correctly (playing videos, navigation).</p>
-    <p>No advertising, analytics, or tracking cookies are used.</p>
-    <p>You can disable cookies in your browser settings at any time, but some features may not work properly.</p>
-  </div>
+  <!-- drawer lives OUTSIDE <header>: a blurred ancestor would trap position:fixed -->
+  <nav class="drawer">
+    <button class="drawer-close" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <footer>
-    <p>
-      <a href="privacy.html">Privacy Policy</a> • 
-      <a href="cookies.html">Cookie Policy</a>
-    </p>
-    <p class="copyright">© 2026 AI MEDIA CREATOR • All Rights Reserved</p>
+  <main>
+    <section class="page-head">
+      <span class="eyebrow">Legal</span>
+      <h1>Cookie Policy</h1>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <p class="stamp">Last updated: June 2026</p>
+        <p>We use only essential cookies to ensure the website functions correctly (video playback and navigation).</p>
+        <p>No advertising, analytics or tracking cookies are used.</p>
+        <p>You can disable cookies in your browser settings at any time, but some features may not work properly.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="privacy.html">Privacy Policy</a> • <a href="cookies.html">Cookie Policy</a></p>
+    <p class="copy">© 2026 AI MEDIA CREATOR — All rights reserved</p>
   </footer>
+
+  <!-- Nova assistant -->
+  <button id="novaFab" class="nova-fab" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  </button>
+  <aside id="nova" class="nova" aria-label="Nova assistant">
+    <div class="nova-head"><span>✦ Nova — AI assistant</span><button id="novaClose" aria-label="Close">✕</button></div>
+    <div id="novaLog" class="nova-log"><div class="msg ai">Hi, I'm Nova. Ask me about our AI video, logo or web work — or how to start a project.</div></div>
+    <div class="nova-input">
+      <input id="novaInput" type="text" placeholder="Type your question…" autocomplete="off">
+      <button id="novaSend">Send</button>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
 </body>
 </html>
