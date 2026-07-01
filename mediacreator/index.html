@@ -11,8 +11,14 @@
   <meta property="og:description" content="AI Media Creator is a creative studio specialising in AI-powered video production, AI logos, animation and futuristic web design.">
   <meta property="og:url" content="https://ai-mediacreator.com/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ai-mediacreator.com/assets/background-poster.jpg">
+  <meta property="og:image" content="https://ai-mediacreator.com/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#060e1c">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +29,7 @@
 <body>
 
   <header class="site-header">
-    <a class="wordmark" href="index.html">AI <b>MEDIA</b> CREATOR</a>
+    <a class="wordmark" href="index.html"><img src="assets/mark.png" alt="" class="wordmark-icon">AI <b>MEDIA</b> CREATOR</a>
     <nav class="nav-desktop">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -44,18 +50,15 @@
 
   <main>
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-words">
-          <span class="eyebrow">AI Media Studio</span>
-          <h1>Bold ideas, rendered into <em>striking visual media</em>.</h1>
-          <p class="lead">We craft AI-powered video, futuristic logos, animation and next-generation web design — from the first concept to the final frame.</p>
-          <a href="#what" class="btn">See what we do</a>
-        </div>
-        <div class="hero-stage">
-          <video id="heroVideo" poster="assets/background-poster.jpg" autoplay muted loop playsinline preload="metadata">
-            <source src="background.mp4" type="video/mp4">
-          </video>
-        </div>
+      <video id="heroVideo" class="hero-video" poster="assets/background-poster.jpg" autoplay muted loop playsinline preload="metadata">
+        <source src="background.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <div class="hero-inner">
+        <span class="eyebrow">AI Media Studio</span>
+        <h1>Bold ideas, rendered into <em>striking visual media</em>.</h1>
+        <p class="lead">We craft AI-powered video, futuristic logos, animation and next-generation web design — from the first concept to the final frame.</p>
+        <a href="#what" class="btn">See what we do</a>
       </div>
       <a href="#what" class="scroll-cue" id="scrollCue" aria-label="Scroll down">
         <span>SCROLL</span>

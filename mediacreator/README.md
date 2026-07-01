@@ -21,7 +21,8 @@ cyan/teal accents (#56bed9 / #3b8db2). Edit them in :root in styles.css.
 
 ## Video SEO fixes baked in
 - Poster images for every video (assets/*-poster.jpg) — Google needs a thumbnail.
-- VideoObject structured data on the Services page (3 showreels).
+- VideoObject structured data on the Services page (4 showreels).
+- Logo + favicon set generated from your Grok assets (assets/mark.png, favicon.*, apple-touch).
 - A video sitemap (<video:video> entries) in sitemap.xml.
 - Background showreel is decorative: muted autoplay (reliable), preload=metadata.
 - Showreel videos lazy-load only when scrolled into view (faster, better Core Web Vitals).
