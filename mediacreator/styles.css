@@ -255,6 +255,11 @@ main{ flex:1; }
   border-top:1px solid var(--line); padding:26px var(--gutter);
   text-align:center; color:var(--faint); font-size:.84rem;
 }
+.social-row{ display:flex; justify-content:center; gap:22px; margin-bottom:16px; }
+.social-row a{ display:inline-flex; padding:6px; border-radius:8px; transition:transform .25s; }
+.social-row svg{ width:22px; height:22px; fill:var(--muted); transition:fill .25s; }
+.social-row a:hover{ transform:translateY(-2px); }
+.social-row a:hover svg{ fill:var(--cyan); }
 .site-footer a{ color:var(--muted); margin:0 12px; }
 .site-footer a:hover{ color:var(--cyan); }
 .site-footer .copy{ margin-top:6px; }
